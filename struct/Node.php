@@ -6,13 +6,11 @@
  * Date: 2018/4/8
  * Time: 11:07
  *
- * cd /users/hewei/site/git/algorithms
- * /usr/local/bin/php binarySearchTree.php
+ * cd /Users/hwbaker/Sites/test/struct
+ * /usr/bin/php TreeLink.php
  */
 
 //namespace struct;
-
-include "MyQueue.php";
 
 class Node
 {
@@ -164,4 +162,67 @@ class Node
             }
         }
     }
+
+    /**
+     * 查找二分搜索树中是否存在某个index
+     * @param $nodeIndex
+     * @return bool
+     */
+    function BSTContain($nodeIndex)
+    {
+        if ($nodeIndex == $this->index) {
+            return true;
+        }
+
+        if ($nodeIndex < $this->index) {
+            if ($this->pLChild != null) {
+                return $this->pLChild->BSTContain($nodeIndex);
+            } else {
+                return false;
+            }
+        } else {
+            if ($this->pRChild != null) {
+                return $this->pRChild->BSTContain($nodeIndex);
+            } else {
+                return false;
+            }
+        }
+    }
+
+    /**
+     * 二分搜索树查找
+     * @param $nodeIndex
+     * @return $this|Node
+     */
+    function BSTSearchNode($nodeIndex)
+    {
+        if ($nodeIndex == $this->index) {
+            return $this;
+        }
+
+        if ($nodeIndex < $this->index) {
+            if ($this->pLChild != null) {
+                if ($nodeIndex == $this->pLChild->index) {
+                    return $this->pLChild;
+                } else {
+                    $tmpNode = $this->pLChild->BSTSearchNode($nodeIndex);
+                    return $tmpNode;
+                }
+            } else {
+                return null;
+            }
+        } else {
+            if ($this->pRChild != null) {
+                if ($nodeIndex == $this->pRChild->index) {
+                    return $this->pRChild;
+                } else {
+                    $tmpNode = $this->pRChild->BSTSearchNode($nodeIndex);
+                    return $tmpNode;
+                }
+            } else {
+                return null;
+            }
+        }
+    }
+
 }

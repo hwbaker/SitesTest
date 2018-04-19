@@ -16,8 +16,7 @@
  */
 
 //namespace struct;
-include "Node.php";
-require_once ("MyQueue.php");
+include "autoLoad.php";
 
 class TreeLink
 {
@@ -75,7 +74,6 @@ class TreeLink
     {
         echo "\r\n\r\nDELETE TEST BEGIN.... \r\n" ;
         $temp = $this->searchNode($nodeIndex);
-//        echo 'searchDeleteNode:' . print_r($temp, true) ."\r\n";
         if ($temp == null) {
             return false;
         }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ * 队列实现-掌握队列的实现原理和机制.
  * User: hwbaker
  * Date: 2018/4/17
  * Time: 12:51
@@ -104,7 +104,7 @@ class MyQueue
         $this->mHead = $this->mHead % self::mQueueCapacity;
         $this->mQueueLen--;
 
-        return $outItem;
+        return true;
     }
 
     /**
@@ -112,9 +112,9 @@ class MyQueue
      */
     function queueTraverse()
     {
-        echo 'mHead:'.$this->mHead."\r\n";
-        echo 'mTail:'.$this->mTail."\r\n";
-        echo 'mQueueLen:'.$this->mQueueLen."\r\n";
+//        echo 'mHead:'.$this->mHead."\r\n";
+//        echo 'mTail:'.$this->mTail."\r\n";
+//        echo 'mQueueLen:'.$this->mQueueLen."\r\n";
 //        echo 'queueTraverse:'.print_r($this->mQueue, true);
         for ($i = $this->mHead; $i <= $this->mQueueLen; $i++) {
             echo $this->mQueue[$i % self::mQueueCapacity] . ' ';
@@ -125,14 +125,14 @@ class MyQueue
 
 }
 
-//$out = '';
-//$queue = new MyQueue();
-//$queue->enQueue(1);
-//$queue->deQueue($out);
-//echo 'out:' . $out . "\r\n";
-//$queue->queueTraverse();
-//
-//$queue->enQueue(2);
-//$queue->enQueue(3);
-//$queue->enQueue(4);
-//$queue->queueTraverse();
+$out = '';
+$queue = new MyQueue();
+$queue->enQueue(11);
+$queue->deQueue($out);
+echo '出队元素:'. $out . "\r\n";
+$queue->queueTraverse();
+
+$queue->enQueue(2);
+$queue->enQueue(3);
+$queue->enQueue(4);
+$queue->queueTraverse();

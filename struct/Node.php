@@ -7,7 +7,7 @@
  * Time: 11:07
  *
  * cd /Users/hwbaker/Sites/test/struct
- * /usr/bin/php TreeLink.php
+ * /usr/bin/php TreeNode.php
  */
 
 //namespace struct;

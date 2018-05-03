@@ -4,7 +4,7 @@
  * User: hwbaker
  * Date: 2018/4/8
  * Time: 17:34
- * /usr/bin/php struct/TreeLink.php
+ * /usr/bin/php struct/TreeNode.php
  *
  *         3(0)
  *   5(1)         8(2)
@@ -18,14 +18,14 @@
 //namespace struct;
 include "autoLoad.php";
 
-class TreeLink
+class TreeNode
 {
 
     private $pRoot;
 
     /**
      * 初始化节点
-     * TreeLink constructor.
+     * TreeNode constructor.
      * @param Node $node
      */
     function __construct(Node $node)
@@ -68,7 +68,7 @@ class TreeLink
     /**
      * 删除节点
      * @param $nodeIndex
-     * @return bool|Node|null|TreeLink
+     * @return bool|Node|null|TreeNode
      */
     function deleteNode($nodeIndex)
     {
@@ -124,12 +124,13 @@ class TreeLink
 
     /**
      * 层序遍历(广度优先遍历)
+     **应用队列这种数据结构实现层序遍历**
      */
     function levelTraversal()
     {
         echo "\r\n\r\n层序遍历.... \r\n" ;
 
-//        $queue = new splqueue();
+//        $queue = new SplQueue();
 //        $queue->enqueue($this->pRoot);
 //        while (!$queue->isEmpty()) {
 //            $node = $queue->dequeue();
@@ -152,7 +153,7 @@ class TreeLink
 }
 
 $nodeRoot = new Node(0, 3);
-$treeLink = new TreeLink($nodeRoot);
+$treeLink = new TreeNode($nodeRoot);
 
 $node1 = new Node(1, 5, null, null, $nodeRoot);
 $treeLink->addNode(0, 0, $node1);

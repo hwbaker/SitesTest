@@ -8,7 +8,6 @@
 
 namespace Imooc;
 
-
 class DataBase
 {
     protected static $db;

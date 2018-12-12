@@ -97,4 +97,14 @@ $event->addObserver(new Observer2());
 //$event->trigger();
 $event->notify();
 
+// 适配器模式
+//$db = new Imooc\Databasetest\DBPDO();
+$db = new Imooc\Databasetest\MySQLi();
+$db->connect("172.1.1.237", "dev_qyer", "QfON0hWKF9VSgFQcx", "honey");
+$res = $db->query("select * from category");
+$db->fetchAll($res);
+$db->close();
+
+
+
 
